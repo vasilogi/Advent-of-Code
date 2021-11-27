@@ -1,7 +1,7 @@
 import pandas as pd
 
 # import the file as pandas dataframe
-df = pd.read_csv('passwords.csv',delimiter=' ')
+df = pd.read_csv('passwords.csv', delimiter=' ')
 
 # 	limits	character	password
 # 0	3-4	l:	vdcv
@@ -19,8 +19,8 @@ df = pd.read_csv('passwords.csv',delimiter=' ')
 # minChar: the lowest number from the password policy
 # maxChar: the highest number from the password policy
 # character: the character that must be included in the password
-minChar   = [i.split('-')[0] for i in df['limits'].to_list()]
-maxChar   = [i.split('-')[1] for i in df['limits'].to_list()]
+minChar = [i.split('-')[0] for i in df['limits'].to_list()]
+maxChar = [i.split('-')[1] for i in df['limits'].to_list()]
 character = [i.split(':')[0] for i in df['character'].to_list()]
 
 # create dictionary of the arrays
