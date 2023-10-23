@@ -41,14 +41,17 @@ def calculate_total_calories(filepath='input.txt'):
         else:
             sum_calories.append(sum(calories))
             calories = []
-    elf_index = sum_calories.index(max(sum_calories))
-    max_calories = max(sum_calories)
-    return elf_index, max_calories
+    return sorted(sum_calories, reverse=True)
 
 
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
 
+    # part A
     input_file = 'input.txt'
-    elf_number, max_total_calories = calculate_total_calories(input_file)
-    print(f"The elf #{elf_number} carries the most total Calories: {max_total_calories}")
+    total_calories = calculate_total_calories(input_file)
+    print(f"The elf carrying out the maximum total Calories, carries : {total_calories[0]}")
+
+    # part B
+    max_three = sum(total_calories[:3])
+    print(f"The total Calories carried by the top three elves is: {max_three}")
