@@ -7,7 +7,7 @@
 # outcome of the round (0 if you lost, 3 if the round was a draw, and 6 if you won)
 
 # Part A
-def file2list(filepath='input.txt'):
+def file2list(filepath: object = 'input.txt') -> object:
     """
         Reads a text file and converts its contents into a list of strings.
 
@@ -25,11 +25,23 @@ def file2list(filepath='input.txt'):
 
 
 def get_rps_score(strategy: str) -> int:
-    # get the score only from the rock paper scissor
-    # win: 6
-    # draw: 3
-    # loss: 0
+    """Calculates the score of a rock-paper-scissors strategy.
 
+        Args:
+            strategy: A string representing the rock-paper-scissors strategy, in the format
+                "opponent's choice player's choice". For example, "A X" represents the strategy where the
+                opponent chooses "rock" and the player also chooses "rock".
+
+        Returns:
+            An integer representing the score of the strategy. The score is calculated as follows:
+
+            * Win: 6 points
+            * Draw: 3 points
+            * Loss: 0 points
+
+        Raises:
+            ValueError: If the strategy string is not in the correct format.
+        """
     score_table = {
         'A X': 3,
         'A Y': 6,
@@ -46,8 +58,21 @@ def get_rps_score(strategy: str) -> int:
 
 
 def get_choice_score(strategy: str) -> int:
-    # get the score only because of your choice
-    # (1 for Rock, 2 for Paper, and 3 for Scissors) plus the score for the
+    """Calculates the score of a rock-paper-scissors choice.
+
+        Args:
+            strategy: A string representing the rock-paper-scissors choice, in the format "X", "Y", or "Z".
+
+        Returns:
+            An integer representing the score of the choice. The score is calculated as follows:
+
+            * Rock: 1 point
+            * Paper: 2 points
+            * Scissors: 3 points
+
+        Raises:
+            ValueError: If the strategy string is not in the correct format.
+        """
 
     strategy = strategy.split(' ')[-1]
 
@@ -61,6 +86,21 @@ def get_choice_score(strategy: str) -> int:
 
 
 def calculate_total_score(strategies: list) -> int:
+    """Calculates the total score of a list of rock-paper-scissors strategies.
+
+        Args:
+            strategies: A list of strings representing the rock-paper-scissors strategies, in the format
+                "opponent's choice player's choice". For example, ["A X", "B Y", "C Z"] represents the
+                list of strategies where the opponent chooses "rock", "paper", and "scissors", respectively, and
+                the player chooses "rock", "paper", and "scissors", respectively.
+
+        Returns:
+            An integer representing the total score of the strategies.
+
+        Raises:
+            ValueError: If any of the strategy strings are not in the correct format.
+        """
+
     total_score = 0
     for strategy in strategies:
         total_score += get_rps_score(strategy) + get_choice_score(strategy)
@@ -72,5 +112,5 @@ def calculate_total_score(strategies: list) -> int:
 if __name__ == '__main__':
     # part A
     input_file = 'input.txt'
-    score_pairs = file2list(input_file)
+    score_pairs: list = file2list(input_file)
     calculate_total_score(score_pairs)
