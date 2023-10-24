@@ -1,10 +1,5 @@
-# Rock defeats Scissors, Scissors defeats Paper, and Paper defeats Rock.
-# A for Rock, B for Paper, and C for Scissors.
-# X for Rock, Y for Paper, and Z for Scissors.
-# Your total score is the sum of your scores for each round.
-# The score for a single round is the score for the shape you selected
-# (1 for Rock, 2 for Paper, and 3 for Scissors) plus the score for the
-# outcome of the round (0 if you lost, 3 if the round was a draw, and 6 if you won)
+# Find the description of the problem here:
+# https://adventofcode.com/2022/day/2
 
 # Part A
 def file2list(filepath: object = 'input.txt') -> object:
